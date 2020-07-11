@@ -20,7 +20,7 @@ jobs:
       env: 
         SECRET_TEST: ${{ secrets.TEST_SECRET }}
       run: |
-        curl https://$SECRET_TEST@anc.razorpay.com/webhooks/webhook/x-regression
+        curl https://${{ secrets.TEST_SECRET }}@anc.razorpay.com/webhooks/webhook/x-regression
     # Runs a single command using the runners shell
     - name: Run a one-line script
       run: echo ${{ secrets.TEST_SECRET }}
