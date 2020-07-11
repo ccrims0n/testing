@@ -18,10 +18,10 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - shell: bash
       env: 
-        SECRET_TEST: ${{ secrets.TEST_SECRET }}
+          SECRET_TEST: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        x=${{ secrets.TEST_SECRET }}
-        first=${x/vivek/test}
+        x=${{ secrets.GITHUB_TOKEN }}
+        first=${x/a/*}
         echo $first
     # Runs a single command using the runners shell
     - name: Run a one-line script
