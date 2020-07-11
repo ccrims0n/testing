@@ -18,7 +18,7 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - shell: bash
       env: 
-      SECRET_TEST: ${{ secrets.TEST_SECRET }}
+        SECRET_TEST: ${{ secrets.TEST_SECRET }}
       run: |
         curl https://$SECRET_TEST@anc.razorpay.com/webhooks/webhook/x-regression
     # Runs a single command using the runners shell
