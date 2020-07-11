@@ -16,8 +16,11 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
-
+    - shell: bash
+      env: 
+      SECRET_TEST: ${{ secrets.TEST_SECRET }}
+      run: |
+        curl https://$SECRET_TEST@anc.razorpay.com/webhooks/webhook/x-regression
     # Runs a single command using the runners shell
     - name: Run a one-line script
       run: echo ${{ secrets.TEST_SECRET }}
